@@ -1,5 +1,5 @@
 package main
-
+// Library package imports
 import (
 	"fmt"
 	"sort"
@@ -10,7 +10,7 @@ import (
 func main() {
 	in := []string{"aaaasd", "a", "aab", "aaabcd", "ef", "cssssssd", "fdz", "kf", "zc", "lklklklklklklklkl", "l"}
 
-	
+	// Pre calculations on the strings
 	type info struct{ count, length int }
 	calculated := map[string]info{}
 	for _, s := range in {
@@ -19,7 +19,7 @@ func main() {
 			length: utf8.RuneCountInString(s),
 		}
 	}
-	
+    // Sorting on the strings 
 	sort.Slice(in, func(i, j int) bool {
 		inf1, inf2 := calculated[in[i]], calculated[in[j]]
 		if inf1.count != inf2.count {
@@ -28,5 +28,5 @@ func main() {
 		return inf1.length > inf2.length
 	})
 
-	fmt.Println(in) 
+	fmt.Println(in)  //Printing the result
 }
